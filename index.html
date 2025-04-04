@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareKaro - Your Trusted Healthcare Partner</title>
+    <link rel="stylesheet" href="care.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .doctors-section {
+            padding: 4rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .doctors-section h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+        }
+
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .doctor-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .doctor-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .doctor-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .doctor-card h3 {
+            color: var(--primary-color);
+            margin: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .doctor-card p {
+            color: var(--secondary-color);
+            margin: 0 1rem;
+            font-weight: 500;
+        }
+
+        .doctor-info {
+            padding: 1rem;
+            background: #f8f9fa;
+        }
+
+        .doctor-info p {
+            color: #666;
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .doctor-info i {
+            color: var(--secondary-color);
+            margin-right: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .doctors-section {
+                padding: 2rem 1rem;
+            }
+
+            .doctors-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1rem;
+            }
+
+            .doctor-card img {
+                height: 250px;
+            }
+        }
+
+        .hero-section {
+            background: url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            padding: 6rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.85) 0%, rgba(46, 204, 113, 0.85) 100%);
+            z-index: 1;
+        }
+
+        .hero-section .content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .hero-section aside img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 3px solid white;
+        }
+
+        #inside {
+            flex: 1;
+            color: white;
+        }
+
+        #inside h1 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        #inside p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        #learn, .book-now {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        #learn {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .book-now {
+            background: var(--secondary-color);
+            color: white;
+            border: 2px solid white;
+        }
+
+        #learn:hover, .book-now:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 4rem 1rem;
+            }
+
+            .hero-section .content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            #inside h1 {
+                font-size: 2.2rem;
+            }
+
+            #inside p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="head">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+            </div>
+            <a id="heading" href="index.html">CareKaro</a>
+        </div>
+        <span id="click">
+            <button type="submit" class="emergency-btn"><i class="fas fa-phone"></i> Emergency: 108</button>
+            <a href="bookanappoin.html">
+                <button type="submit" class="appointment-btn"><i class="fas fa-calendar-check"></i> Book Appointment</button>
+            </a>
+        </span>
+    </div>
+
+    <div class="container">
+        <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+        <a href="mainaboutus.html" class="nav-link"><i class="fas fa-info-circle"></i> About Us</a>
+        <a href="services.html" class="nav-link"><i class="fas fa-stethoscope"></i> Services</a>
+        <a href="health-tools.html" class="nav-link"><i class="fas fa-calculator"></i> Health Tools</a>
+        <a href="#" onclick="findNearbyHospitals(); return false;" class="nav-link"><i class="fas fa-map-marker-alt"></i> Locations</a>
+        <a href="loginpage.html" target="_blank" class="nav-link">
+            <button type="submit" id="login"><i class="fas fa-user"></i> Login</button>
+        </a>
+    </div>
+
+    <div class="hero-section">
+        <div class="content">
+            <div id="inside">
+                <h1>Welcome to CareKaro Healthcare</h1>
+                <p>Providing Quality Healthcare Services with Compassion and Excellence</p>
+                <div class="cta-buttons">
+                    <a href="bookanappoin.html">
+                        <button type="submit" class="book-now">Book Appointment</button>
+                    </a>
+                </div>
+            </div>
+            <aside>
+                <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Modern Hospital Facility">
+            </aside>
+        </div>
+    </div>
+
+    <section id="services" class="services-section">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-user-md"></i>
+                <h3>Primary Care</h3>
+                <p>Comprehensive healthcare services for all ages</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-heart"></i>
+                <h3>Cardiology</h3>
+                <p>Expert heart care and treatment</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-brain"></i>
+                <h3>Neurology</h3>
+                <p>Specialized brain and nerve care</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-tooth"></i>
+                <h3>Dental Care</h3>
+                <p>Complete dental health solutions</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctors Section -->
+    <section class="doctors-section">
+        <h2>Our Expert Doctors</h2>
+        <div class="doctors-grid">
+            <div class="doctor-card">
+                <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Dr. Rajesh Kumar">
+                <h3>Dr. Rajesh Kumar</h3>
+                <p>Chief Medical Officer</p>
+                <div class="doctor-info">
+                    <p><i class="fas fa-graduation-cap"></i> MD, Internal Medicine</p>
+                    <p><i class="fas fa-clock"></i> 20+ years experience</p>
+                    <p><i class="fas fa-star"></i> 4.9/5 rating</p>
+                </div>
+            </div>
+            <div class="doctor-card">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Dr. Priya Sharma">
+                <h3>Dr. Priya Sharma</h3>
+                <p>Head of Operations</p>
+                <div class="doctor-info">
+                    <p><i class="fas fa-graduation-cap"></i> MD, Healthcare Management</p>
+                    <p><i class="fas fa-clock"></i> 15+ years experience</p>
+                    <p><i class="fas fa-star"></i> 4.8/5 rating</p>
+                </div>
+            </div>
+            <div class="doctor-card">
+                <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Dr. Amit Patel">
+                <h3>Dr. Amit Patel</h3>
+                <p>Medical Director</p>
+                <div class="doctor-info">
+                    <p><i class="fas fa-graduation-cap"></i> MD, General Surgery</p>
+                    <p><i class="fas fa-clock"></i> 18+ years experience</p>
+                    <p><i class="fas fa-star"></i> 4.7/5 rating</p>
+                </div>
+            </div>
+            <div class="doctor-card">
+                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Dr. Neha Gupta">
+                <h3>Dr. Neha Gupta</h3>
+                <p>Senior Cardiologist</p>
+                <div class="doctor-info">
+                    <p><i class="fas fa-graduation-cap"></i> MD, Cardiology</p>
+                    <p><i class="fas fa-clock"></i> 12+ years experience</p>
+                    <p><i class="fas fa-star"></i> 4.9/5 rating</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-phone"></i> Emergency: 108</p>
+                <p><i class="fas fa-phone"></i> General: 1800-XXX-XXXX</p>
+                <p><i class="fas fa-envelope"></i> info@carekaro.com</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="#">About Us</a>
+                <a href="#">Services</a>
+                <a href="#">Locations</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 CareKaro Healthcare. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="locations.js"></script>
+</body>
+</html>

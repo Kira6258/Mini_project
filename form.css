@@ -1,0 +1,14 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: antiquewhite;
+    padding:10% 0 0 40%;
+    background-image: url("new.jpg");
+    background-size: cover;
+}
+
+button:hover{
+    background-color: red;
+}
+
